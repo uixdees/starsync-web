@@ -1,0 +1,408 @@
+/* Общие стили и переменные */
+:root {
+    --bg-primary: #111112;
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.60);
+    --input-bg: #16171B;
+    --btn-primary: #007AFF;
+    --border-light: rgba(255, 255, 255, 0.10);
+}
+
+/* Сбросс базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Подключение шрифта локально */
+@font-face {
+    font-family: 'Satoshi Variable';
+    src: url('/static/fonts/Satoshi-Variable.woff2') format('woff2');
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Satoshi Variable', sans-serif;
+    background-color: var(--bg-primary);
+}
+
+/* Фон и слои */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(45% 25% at 50% 100%, rgba(199, 173, 228, 0.40) 0%, rgba(0, 0, 0, 0.00) 100%);
+    z-index: 0;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.stars img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Spline viewer */
+spline-viewer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Логотип и метка */
+.logo-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.soon-label {
+    display: flex;
+    padding: 2px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 8px;
+    background: linear-gradient(293deg, #F77 0%, #EF234C 100%);
+    color: #FFF;
+    text-align: center;
+    font-family: "Satoshi Variable";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+ }
+
+/* Оверлей с контентом */
+.overlay-container {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: 560px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    border-radius: 40px;
+    border: 2px solid var(--border-light);
+    background: var(--input-bg);
+    z-index: 10;
+}
+
+.content-block {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+/* Текстовая секция */
+.text-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.text-section h1 {
+    color: var(--text-primary);
+    text-align: center;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 54px;
+    letter-spacing: -0.66px;
+}
+
+.text-section p {
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.32px;
+}
+
+/* Иконка подсказки */
+.hint-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.hint-icon:hover {
+    opacity: 1;
+}
+
+
+/* Секция email */
+.email-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.email-input-container {
+    display: flex;
+    height: 56px;
+    padding: 12px 12px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    background: var(--input-bg);
+}
+
+.email-icon {
+    margin-right: 8px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.input-wrapper input {
+    border: none;
+    background: none;
+    color: var(--text-primary);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+    width: 100%;
+    outline: none;
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.40);
+    font-family: "Satoshi Variable";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+}
+
+.clear-input-icon {
+    display: none;
+    cursor: pointer;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+ }
+
+.submit-btn {
+    display: flex;
+    height: 56px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    background: var(--btn-primary);
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.18px;
+    cursor: pointer;
+}
+
+.hint-overlay {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 408px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    display: flex;
+    padding-bottom: 24px;
+    align-items: center;
+    border-radius: 32px;
+    border: 1px solid var(--border-light);
+    background: rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(16px);
+}
+  
+.overlay-header {
+    display: flex;
+    padding: 12px 12px 12px 24px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.overlay-header h3 {
+    color: #FFF;
+    font-family: "Satoshi Variable";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 111.111% */
+    letter-spacing: -0.18px;
+}
+  
+.close-icon {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    display: flex;
+    width: 40px;
+    padding: 10px;
+    align-items: center;
+    gap: 0px;
+}
+  
+.close-icon:hover {
+    opacity: 1;
+}
+  
+.overlay-content {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.overlay-content p{
+display: flex;
+padding: 16px 24px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+color: #FFF;
+font-family: "Satoshi Variable";
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 150% */
+letter-spacing: -0.6px;
+}
+  
+
+.overlay-content ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.overlay-content ul li{
+    display: flex;
+    padding: 8px 24px;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    color: #FFF;
+    font-family: "Satoshi Variable";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
+    letter-spacing: -0.3px;
+}    
+
+.iconblock {
+    display: flex;
+    width: 56px;
+    height: 56px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(0, 122, 255, 0.40);
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: calc(40px - 20px); /* 20px выше контейнера */
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    width: 324px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24px;
+    border: 1px solid #2B2C2D;
+    backdrop-filter: blur(12px);
+    padding: 16px 24px;
+    color: #FFF;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-family: "Satoshi Variable";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+    z-index: 11; /* Выше других элементов */
+}
+
+.notification-success {
+    background: rgba(52, 199, 89, 0.80);
+}
+
+.notification-warning {
+    background: rgba(255, 149, 0, 0.80);
+}
+
+.notification-error {
+    background: rgba(235, 75, 66, 0.80);
+}
+
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .overlay-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .text-section h1 {
+        font-size: 32px;
+        line-height: 42px;
+    }
+}

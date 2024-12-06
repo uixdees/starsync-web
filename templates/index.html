@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta Test Landing</title>
+    
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Spline viewer script -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
+</head>
+<body>
+    <!-- Логотип и метка SOON -->
+    <div class="logo-container">
+        <!-- SVG логотипа будет добавлен позже -->
+        <div id="logo"><img src="{{ url_for('static', filename='svg/logo.svg') }}" alt="Stars background"></div>
+        <div class="soon-label">Soon</div>
+    </div>
+
+    <!-- Фоновые слои -->
+    <div class="background">
+        <div class="stars"><img src="{{ url_for('static', filename='svg/stars.svg') }}" alt="Stars background"></div>
+    </div>
+
+    <!-- Spline объект -->
+    <spline-viewer 
+        id="spline-viewer"
+        loading-anim-type="none" 
+        url="https://prod.spline.design/iewBOJCLaHXNADQT/scene.splinecode">
+    </spline-viewer>
+
+    <!-- Плашка с контентом -->
+    <div class="overlay-container">
+        <div class="content-block">
+            <div class="text-section">
+                <h1>Sync your life</h1>
+                <p>StarSync app allows you to track your biorhythms, choose suitable activities, better understand yourself, and plan important days based on favorable periods.</p>
+            </div>
+
+            <div class="hint-icon">
+                <img src="{{ url_for('static', filename='svg/icon-question.svg') }}" alt="icon question">
+            </div>
+
+            <div class="email-section">
+                <div class="email-input-container">
+                    <img src="{{ url_for('static', filename='svg/icon-userplus.svg') }}" alt="icon userplus">
+                    <div class="input-wrapper">
+                        <!-- <label for="email-input">Email</label> -->
+                        <input type="email" id="email-input" placeholder="ex. betatest@gmail.com">
+                    </div>
+                    <div class="clear-input-icon">
+                        <img src="{{ url_for('static', filename='svg/icon-crosscircle.svg') }}" alt="icon crosscircle">
+                    </div>
+                </div>
+                <button class="submit-btn">Subscribe to beta</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hint-overlay" style="display: none;">
+        <div class="overlay-header">
+          <h3>About StarSync</h3>
+          <div class="close-icon">
+            <img src="{{ url_for('static', filename='svg/icon-cross.svg') }}" alt="icon cross">
+          </div>
+        </div>
+        <div class="overlay-content">
+          <p>StarSync explores the impact of space objects on human mental health.</p>
+          <ul>
+            <li><div class="iconblock"><img src="{{ url_for('static', filename='svg/icon-bio.svg') }}" alt="icon biorhythm"></div>Understand your natural rhythms with biorhythm analysis to enhance daily harmony.</li>
+            <li><div class="iconblock"><img src="{{ url_for('static', filename='svg/icon-maximize.svg') }}" alt="icon maximize"></div>Personalized recommendations guide oward better decisions and improved well-being every day.</li>
+            <li><div class="iconblock"><img src="{{ url_for('static', filename='svg/icon-calendar.svg') }}" alt="icon calendar"></div>Calendar of favorable periods helps for productivity, rest, and balance in life.</li>
+          </ul>
+        </div>
+    </div>
+
+    <!-- Уведомления -->
+    <div class="notification"></div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
