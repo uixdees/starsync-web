@@ -13,7 +13,7 @@ talisman = Talisman(app, content_security_policy={
     'style-src': ["'self'", "'unsafe-inline'"],  # Разрешение на inline стили
     'img-src': ["'self'", "data:"],  # Разрешить изображения с того же домена и base64
     'font-src': ["'self'"],  # Разрешить шрифты с того же домена
-    'connect-src': ["'self'"],  # Разрешить запросы на тот же домен
+    'connect-src': ["'self'", "https://prod.spline.design"],  # Разрешить подключения к prod.spline.design
     'object-src': ["'none'"]  # Отключить загрузку объектов
 })
 
