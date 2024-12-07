@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
     
-            const responseData = await response.json(); // Парсим JSON ответа
+            const responseData = await response.json(); // Парсим JSON ответа ay
 
             console.log('Full Response Status:', response.status);
             console.log('Full Response Text:', responseText);
