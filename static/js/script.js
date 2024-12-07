@@ -43,11 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         notification.style.display = 'flex';
 
-        // Использование функции hideNotification вместо анонимной функции
         setTimeout(hideNotification, 3000);
     }
 
-    // Функция для скрытия уведомления
     function hideNotification() {
         notification.style.display = 'none';
     }
@@ -73,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const serverUrl = window.location.hostname === 'localhost' 
                 ? 'http://localhost:5000' 
-                : 'https://starsync.herokuapp.com'; // Замените на ваш серверный URL
+                : 'https://starsync.herokuapp.com'; 
 
             const response = await fetch(`${serverUrl}/subscribe`, {
                 method: 'POST',
@@ -86,16 +84,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     group_id: '139980850416584063' // ID группы
                 })
             });
-    
+
+            if (!response.ok) {
+                // Обработка ошибок, если сервер вернул неуспешный код
+                const errorData = await response.json();
+                showNotification(`Error: ${errorData.error || 'Failed to subscribe'}`, 'error');
+                console.error('Subscription failed:', errorData);
+                return;
+            }
+
             const responseData = await response.json();
     
-            if (response.ok) {
-                showNotification('Email successfully sent', 'success');
-                console.log('Subscription successful:', responseData);
-            } else {
-                showNotification(`Error: ${responseData.error || 'Failed to subscribe'}`, 'error');
-                console.error('Subscription failed:', responseData);
-            }
+            showNotification('Email successfully sent', 'success');
+            console.log('Subscription successful:', responseData);
         } catch (error) {
             showNotification('Network error. Please try again.', 'error');
             console.error('Submission error:', error);
