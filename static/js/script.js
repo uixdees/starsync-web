@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         try {
-            const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+            const response = await fetch('https://connect.mailerlite.com/api', {
                 method: 'POST',
                 headers: {
                     'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNTU5NzMwMWE1MjgwM2RhMWU5NDc0ZTM4NjRjOTBiYWI1ZDUzMmY5MDNjYTI5N2NhYjM0ZDU5MjRiNDFhMzVkZWIzMDcxMGJhOGJmYzYwNDMiLCJpYXQiOjE3MzM1NTgxNTAuMzI4NDIyLCJuYmYiOjE3MzM1NTgxNTAuMzI4NDI1LCJleHAiOjQ4ODkyMzE3NTAuMzI0MDEzLCJzdWIiOiIxMjMzOTA5Iiwic2NvcGVzIjpbXX0.NFO6j_4Nu0QFTFDn5-CDjG079Ob9oSw4cLTzVKQ12b52eFIs-fE3QI93rYcpK6FhnB_Mmqm6qsShfzJLa8oWV7SEmXQNkV8Erlo4_0t55k_5MW0fmgwPS-TyyGr4R4wVbm3GTaEmWG_xBOWk38P-C7Tu6U9QiyyzLPJ7F1MXvjiGD712JS9gvF664_si9CPQbIBiaeJt_pklwSnPeA6guGqbyKhBS5Wj1KeJEb7DR7FXTWTG45DWjeI141svMMINP7jSzgcCTeH4i0n-4Xpo4TnTxC1SCXHzQKqAJ7fmXAmu-yoV5h16IM6pn9qrVzNv3WxTqt8hFqYdwqPyzB1NrLQWySbfH4FzWDch_zpY5mBT2hUJb-XHR5otjMP3u2wbdxn0HNzrkZPpXAT0BucanSteCq1iug2pcC_2TStIetwXc4m_Pgs9desv0bh4-6g3k-AYOxgai2LK9-Qle3vVoXJiOb9JkPiMuwJyNpbY_vVcCHbvJrhoOPXKs6yFmEJwox5lq0kT1OT-pxnWDCXSCQYIzyhlbOYEXkmKoJxP40goXk-PzuREn02L-CnLkzeqkUDpYm93LVfh4GYOxBFELfe1Fn6TejPQPYtTZ5zaJ2TA4U7GvvsH9bnKkXS4WRdZIbrT9J3rPK-yM_hYKz9xn96vARch6c4ho_87Q3UAWgg', // Обновите токен
