@@ -10,13 +10,11 @@
     
     <!-- Spline viewer script -->
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
-
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <!-- Логотип и метка SOON -->
     <div class="logo-container">
+        <!-- SVG логотипа будет добавлен позже -->
         <div id="logo"><img src="{{ url_for('static', filename='svg/logo.svg') }}" alt="Stars background"></div>
         <div class="soon-label">Soon</div>
     </div>
@@ -49,18 +47,13 @@
                 <div class="email-input-container">
                     <img src="{{ url_for('static', filename='svg/icon-userplus.svg') }}" alt="icon userplus">
                     <div class="input-wrapper">
+                        <!-- <label for="email-input">Email</label> -->
                         <input type="email" id="email-input" placeholder="ex. betatest@gmail.com">
                     </div>
                     <div class="clear-input-icon">
                         <img src="{{ url_for('static', filename='svg/icon-crosscircle.svg') }}" alt="icon crosscircle">
                     </div>
                 </div>
-
-                <!-- Cloudflare Turnstile -->
-                <div class="turnstile-container">
-                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAA1sERVRUvoVq7yn"></div>
-                </div>
-
                 <button class="submit-btn">Subscribe to beta</button>
             </div>
         </div>
