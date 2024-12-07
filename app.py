@@ -9,7 +9,7 @@ CORS(app)  # Разрешение CORS для взаимодействия с ф
 # Настройка CSP через Flask-Talisman
 talisman = Talisman(app, content_security_policy={
     'default-src': ["'self'"],  # Разрешить загрузку контента только с того же домена
-    'script-src': ["'self'", 'https://unpkg.com'],  # Разрешить скрипты с текущего домена и unpkg.com
+    'script-src': ["'self'", 'https://unpkg.com', "'unsafe-eval'"],  # Разрешить скрипты с текущего домена и unpkg.com, а также unsafe-eval
     'style-src': ["'self'", "'unsafe-inline'"],  # Разрешение на inline стили
     'img-src': ["'self'", "data:"],  # Разрешить изображения с того же домена и base64
     'font-src': ["'self'"],  # Разрешить шрифты с того же домена
