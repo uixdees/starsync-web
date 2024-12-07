@@ -9,11 +9,12 @@ CORS(app)  # Разрешение CORS для взаимодействия с ф
 # Настройка CSP через Flask-Talisman
 talisman = Talisman(app, content_security_policy={
     'default-src': ["'self'"],  # Разрешить загрузку контента только с того же домена
-    'script-src': ["'self'", "'unsafe-inline'"],  # Разрешение на выполнение скриптов с того же домена и inline-скрипты
+    'script-src': ["'self'", 'https://unpkg.com'],  # Разрешить скрипты с текущего домена и unpkg.com
     'style-src': ["'self'", "'unsafe-inline'"],  # Разрешение на inline стили
     'img-src': ["'self'", "data:"],  # Разрешить изображения с того же домена и base64
     'font-src': ["'self'"],  # Разрешить шрифты с того же домена
-    'connect-src': ["'self'"]  # Разрешить запросы на тот же домен
+    'connect-src': ["'self'"],  # Разрешить запросы на тот же домен
+    'object-src': ["'none'"]  # Отключить загрузку объектов
 })
 
 # Ваш API-токен MailerLite
