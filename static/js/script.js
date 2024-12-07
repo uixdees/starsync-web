@@ -76,17 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('https://connect.mailerlite.com/api', {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNTU5NzMwMWE1MjgwM2RhMWU5NDc0ZTM4NjRjOTBiYWI1ZDUzMmY5MDNjYTI5N2NhYjM0ZDU5MjRiNDFhMzVkZWIzMDcxMGJhOGJmYzYwNDMiLCJpYXQiOjE3MzM1NTgxNTAuMzI4NDIyLCJuYmYiOjE3MzM1NTgxNTAuMzI4NDI1LCJleHAiOjQ4ODkyMzE3NTAuMzI0MDEzLCJzdWIiOiIxMjMzOTA5Iiwic2NvcGVzIjpbXX0.NFO6j_4Nu0QFTFDn5-CDjG079Ob9oSw4cLTzVKQ12b52eFIs-fE3QI93rYcpK6FhnB_Mmqm6qsShfzJLa8oWV7SEmXQNkV8Erlo4_0t55k_5MW0fmgwPS-TyyGr4R4wVbm3GTaEmWG_xBOWk38P-C7Tu6U9QiyyzLPJ7F1MXvjiGD712JS9gvF664_si9CPQbIBiaeJt_pklwSnPeA6guGqbyKhBS5Wj1KeJEb7DR7FXTWTG45DWjeI141svMMINP7jSzgcCTeH4i0n-4Xpo4TnTxC1SCXHzQKqAJ7fmXAmu-yoV5h16IM6pn9qrVzNv3WxTqt8hFqYdwqPyzB1NrLQWySbfH4FzWDch_zpY5mBT2hUJb-XHR5otjMP3u2wbdxn0HNzrkZPpXAT0BucanSteCq1iug2pcC_2TStIetwXc4m_Pgs9desv0bh4-6g3k-AYOxgai2LK9-Qle3vVoXJiOb9JkPiMuwJyNpbY_vVcCHbvJrhoOPXKs6yFmEJwox5lq0kT1OT-pxnWDCXSCQYIzyhlbOYEXkmKoJxP40goXk-PzuREn02L-CnLkzeqkUDpYm93LVfh4GYOxBFELfe1Fn6TejPQPYtTZ5zaJ2TA4U7GvvsH9bnKkXS4WRdZIbrT9J3rPK-yM_hYKz9xn96vARch6c4ho_87Q3UAWgg', // Обновите токен
+                    'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiZmM0Y2VjOWM5OWY5MDg2MWJkYWQ4ZmQ3ZmQ2NWE0YThmYWQ3MjIzZDgzZWQ2ZTA3NGQ5NDY0YmY4OTZiNTc3NTU3NzM5MzFiOWIyYjE2NmUiLCJpYXQiOjE3MzM0OTU5NTkuOTQ5MzYxLCJuYmYiOjE3MzM0OTU5NTkuOTQ5MzYzLCJleHAiOjQ4ODkxNjk1NTkuOTQ0Mjg4LCJzdWIiOiIxMjMzOTA5Iiwic2NvcGVzIjpbXX0.t0lgr8BqoedPFn8AQ8aFMdS4awvdg7LbxG6JeW9BQnfmbbkURaEbA5EQS7brxi_f4nrvW-BAU4DXiCov4ed022OtM68H5RiE4ZPlVcYrGKj7BgHXo9YsCmO_a9ZQTt8-gSJQc6mfhcziLPlpimPZS8iTxjtHeevaqPqxwFu1xP62K9Dma01ATI0ErM-Xp0sSmffUesM-ISeLIp1LwtMD2731Fe8-YW3rDKCEKOJ18lo4cT7z_IDpqjEWEmOK5y6h-lhUP5JGw9QRE3hvVW2Wy78iRepU0CD2pLN-xrr2ohT_qota07ioE9xhZWKpYuQZctWqymJT2rUfDA3hoVQzHDgqWsyt5lbU3vegx5KVHqE0MiubcrTHmggKVV_BcEnhusR3q6bof1QVFRrBZrhlS7wwZ6WONn68GrOPwsmrFo1ile5pJ0O9GiiXNUiImsk7XXLqGsVvQNy8Popm2GNJ6QOOggZHl1H_c2XHwNE_RtKJSjRTF4Su8qCwURks5IoQQLtXYRBPNFvV6QnXf4mW8u0WPp7HDs7anSlSBzTyaLc-ugw2CXWZ32p5Vmr5B785x2b_IQfHVtM9zVi3xnbG7AV_klZq-4M1j3Q0U599_NK2NoiVEsfiZP4Nkh0z9P--HdQKEwnS29k3aav-kBZCQIf3A9wARDVSQmpgk-HrXhk', // Обновите токен
                     'Content-Type': 'application/json',
                     'Accept': 'application/json' // Добавлен заголовок Accept
                 },
                 body: JSON.stringify({
                     email: email,
-                    groups: ['betatesters']
+                    groups: ['139980850416584063']
                 })
             });
     
-            const responseData = await response.json(); // Парсим JSON ответа ay
+            const responseData = await response.json(); // Парсим JSON ответа ay1
 
             console.log('Full Response Status:', response.status);
             console.log('Full Response Text:', responseText);
