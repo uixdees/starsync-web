@@ -69,9 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const serverUrl = window.location.hostname === 'localhost' 
-                ? 'http://localhost:5000' 
-                : 'https://starsync.herokuapp.com'; 
+
 
             const response = await fetch(`${serverUrl}/subscribe`, {
                 method: 'POST',
