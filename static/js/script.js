@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
 
 
-            const response = await fetch(`MAILERLITE_URL`, {
+            const response = await fetch(`https://connect.mailerlite.com/api/subscribers`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
