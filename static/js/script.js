@@ -43,9 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         notification.style.display = 'flex';
 
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 3000);
+        // Использование функции hideNotification вместо анонимной функции
+        setTimeout(hideNotification, 3000);
+    }
+
+    // Функция для скрытия уведомления
+    function hideNotification() {
+        notification.style.display = 'none';
     }
 
     hintIcon.addEventListener('click', () => {
@@ -67,35 +71,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const turnstileToken = document.querySelector('.cf-turnstile').dataset.response; // Получаем token от Turnstile
-            
-            if (!turnstileToken) {
-                showNotification('Please complete the security check', 'error');
-                return;
-            }
+            const serverUrl = window.location.hostname === 'localhost' 
+                ? 'http://localhost:5000' 
+                : 'https://starsync.herokuapp.com'; // Замените на ваш серверный URL
 
-            // Отправляем запрос напрямую в MailerLite API
-            const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+            const response = await fetch(`${serverUrl}/subscribe`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer YOUR_API_TOKEN', // Замените на ваш токен MailerLite
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
                     email: email,
-                    groups: ['139980850416584063'], // ID группы
-                    cf_turnstile_response: turnstileToken // Отправляем token Turnstile для верификации
+                    group_id: '139980850416584063' // ID группы
                 })
             });
-
+    
             const responseData = await response.json();
-
+    
             if (response.ok) {
                 showNotification('Email successfully sent', 'success');
                 console.log('Subscription successful:', responseData);
             } else {
-                showNotification(`Error: ${responseData.message || 'Failed to subscribe'}`, 'error');
+                showNotification(`Error: ${responseData.error || 'Failed to subscribe'}`, 'error');
                 console.error('Subscription failed:', responseData);
             }
         } catch (error) {
