@@ -87,6 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     
             const responseData = await response.json(); // Парсим JSON ответа
+
+            console.log('Full Response Status:', response.status);
+            console.log('Full Response Text:', responseText);
     
             if (response.ok) {
                 showNotification('Email successfully sent', 'success');
