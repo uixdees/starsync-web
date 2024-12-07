@@ -28,7 +28,7 @@ def subscribe():
 
         # Формируем запрос к MailerLite
         headers = {
-            "Authorization": f"Bearer {API_TOKEN}",
+            "Authorization": "Bearer {API_TOKEN}",
             "Content-Type": "application/json",
             "Accept": "application/json"
         }
