@@ -42,10 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         notification.style.display = 'flex';
-        
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 3000);
+
+        // Использование функции hideNotification вместо анонимной функции
+        setTimeout(hideNotification, 3000);
+    }
+
+    // Функция для скрытия уведомления
+    function hideNotification() {
+        notification.style.display = 'none';
     }
 
     hintIcon.addEventListener('click', () => {
@@ -58,12 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         hintOverlay.style.display = 'none';
     });
 
-    function simulateCloudflareVerification() {
-        return new Promise((resolve) => {
-            setTimeout(() => resolve(true), 1000);
-        });
-    }
-
     submitBtn.addEventListener('click', async () => {
         const email = emailInput.value.trim();
     
@@ -71,10 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
             showNotification('Please make sure your email is correct', 'warning');
             return;
         }
-    
+
         try {
-            // Отправляем запрос на ваш сервер
-            const response = await fetch('/subscribe', { // Локальный эндпоинт сервера
+            const serverUrl = window.location.hostname === 'localhost' 
+                ? 'http://localhost:5000' 
+                : 'https://starsync.herokuapp.com'; // Замените на ваш серверный URL
+
+            const response = await fetch(`${serverUrl}/subscribe`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -100,6 +101,4 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Submission error:', error);
         }
     });
-    
-    
 });
