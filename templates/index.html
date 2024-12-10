@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beta Test Landing</title>
+    <meta name="description" content="StarSync — app for increasing productivity through synchronisation with biorhythms. Improve your mental health and manage your time efficiently.">
+    <meta name="keywords" content="биоритмы, продуктивность, ментальное здоровье, управление временем, StarSync, AI советник, biorhythms, productivity, mental health, time management">
+    
+    <title>Welcome to StarSync — Track your biorhythms</title>
     
     <!-- Основные стили -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon/favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon/favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}" />
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}" />
     
     <!-- Spline viewer script -->
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>

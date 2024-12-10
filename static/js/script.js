@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
 
 
-            const response = await fetch(`https://connect.mailerlite.com/api/subscribers`, {
+            const response = await fetch(`http://127.0.0.1:5000/subscribe`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({
                     email: email,
-                    group_id: '139980850416584063' // ID группы
+                    group_id: '139980850416584063'
                 })
-            });
+            });            
 
             if (!response.ok) {
                 // Обработка ошибок, если сервер вернул неуспешный код
