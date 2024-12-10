@@ -396,13 +396,35 @@ letter-spacing: -0.6px;
 
 /* Адаптивность */
 @media (max-width: 768px) {
+    .hint-overlay {
+        top: 0;
+        right: 0;
+        width: 100vw; /* Полная ширина экрана */
+        height: 100vh; /* Полная высота экрана */
+        border-radius: 0; /* Убираем скругления */
+        padding: 16px; /* Уменьшаем отступы */
+        align-items: flex-start; /* Выравниваем содержимое по началу */
+        justify-content: flex-start; /* Выравниваем содержимое по началу */
+    }
+
     .overlay-container {
-        width: 90%;
+        width: 95%;
         padding: 20px;
+        bottom: 20px;
+    }
+
+    .content-block {
+    gap: 20px;
     }
 
     .text-section h1 {
         font-size: 32px;
         line-height: 42px;
     }
+
+    .email-section {
+        display: inline-grid;
+        width: 100%;
+    }
+
 }
